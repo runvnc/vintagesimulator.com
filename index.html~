@@ -68,6 +68,7 @@ html, body, div, p, span, td, th, tr, img {
       .gal {
         display: inline-block;
 	width: 100%;
+	margin-right: 10%;
       }
 
       .gallery img {
