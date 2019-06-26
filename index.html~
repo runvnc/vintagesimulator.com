@@ -120,6 +120,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="panel gallery">
         <ul class="gal">
           <li>
+	    <img src="c64tst.png"/>
             <img src="manycores.png"/>
           </li>
         </ul>
