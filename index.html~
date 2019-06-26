@@ -60,6 +60,7 @@ html, body, div, p, span, td, th, tr, img {
 
       .gallery {
         float: right;
+        width: 45%;
       }
 
       h1, h2 {
