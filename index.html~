@@ -52,7 +52,7 @@ html, body, div, p, span, td, th, tr, img {
       }
 
       .content {
-        float: clear;
+        clear: left;
 	width: 60%;
         background-image: none;
         background-color: rgba(0,0,0,0.8);
