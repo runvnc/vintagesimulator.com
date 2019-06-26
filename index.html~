@@ -53,6 +53,9 @@ html, body, div, p, span, td, th, tr, img {
         background-color: rgba(0,0,0,0.8);
       }
 
+      .gallery {
+        float: right;
+      }
 
       h1, h2 {
         color: magenta;
