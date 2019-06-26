@@ -45,6 +45,7 @@ html, body, div, p, span, td, th, tr, img {
       .intro {
         width: 40%;
         background-image: none;
+	float: left;
       }
 
       .content {
