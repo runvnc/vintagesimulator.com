@@ -33,6 +33,7 @@ html, body, div, p, span, td, th, tr, img {
        background-image: url('vsimheader.png');
        background-position: center top;
        background-repeat: no-repeat; 
+       height: 100vh;
       }
 
       .page {
