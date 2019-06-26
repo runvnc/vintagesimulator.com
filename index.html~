@@ -63,6 +63,15 @@ html, body, div, p, span, td, th, tr, img {
         width: 45%;
       }
 
+      .gal {
+        display: inline-block;
+	width: 100%;
+      }
+
+      .gallery img {
+        width: 100%;
+      }
+
       h1, h2 {
         color: magenta;
       }
