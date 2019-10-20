@@ -32,10 +32,9 @@
  
  <div id="main">
 
-
-<h2 id="developers">Developers</h2>
+<h3 id="developers">Developers</h3>
 <p>VSIM is a work in progress. VSIM is currently primarily aimed at programmers who are interested in things like emulation, Lua, 3D models, or physics simulation. For example, it can provide a good starting point for creating your own custom front-end for libretro. The hope is that some developers will be interested and will create plugins that add functionality or content that non-programmers can easily access.</p>
-<h2 id="keybindings">Keybindings</h2>
+<h3 id="keybindings">Keybindings</h3>
 <table>
 <thead>
 <tr class="header">
@@ -70,123 +69,127 @@
 </tr>
 </tbody>
 </table>
-<h2 id="finding-plugins">Finding Plugins</h2>
+<h3 id="finding-plugins">Finding Plugins</h3>
 <p>Currently <a href="https://reddit.com/r/vsim" class="uri">https://reddit.com/r/vsim</a> is the best place to find plugins or post any you create.</p>
 <h1 id="top">top</h1>
-<h2 id="installing-plugins">Installing Plugins</h2>
+<h3 id="installing-plugins">Installing Plugins</h3>
 <p>To install a plugin press F5, paste in the plugin URL with Control-V, then hit ENTER. You will need to restart the program before the plugin will be active.</p>
-<h2 id="creating-plugins">Creating Plugins</h2>
+<h3 id="creating-plugins">Creating Plugins</h3>
 <p>To create a plugin, first make a directory in [VSIM root]/lua/. Plugins can contain files and/or lua code in init.lua. You can test your plugin by adding it to the list in the [VSIM root]/plugins file and restarting VSIM. When it is ready open the console and type plugin_makezip(&quot;mydir&quot;)[ENTER] where mydir is the subdirectory of [VSIM root]/lua/ (just the folder name, not a full path). It will create a .7z file in [VSIM root]/lua/plugins/forupload which you can upload to your host. Then just share the URL for your plugin.</p>
 <h1 id="emulation">Emulation</h1>
-<h2 id="emuemulateemulatoridfiletoloadtableopts">emu.emulate(emulatorid,filetoload,tableopts)</h2>
+<h3 id="emuemulateemulatoridfiletoloadtableopts">emu.emulate(emulatorid,filetoload,tableopts)</h3>
 <p>Run selected emulator (set with emu.core()) with an optional command/rom/binary and options table with emulator variable settings. Note: if there is a cores.cfg file it is parsed by the utils plugin at program start and placed in vsimcorecfg. NOTE: YOU MUST HAVE THE REQUIRED ROM OR OTHER FILES INSTALLED IN THE EXPECTED LOCATIONS. You may run the same core multiple times simultaneously or several different cores depending on system resources.</p>
-<h3 id="run-top-gear-snes-game">run Top Gear SNES game</h3>
+<h4 id="run-top-gear-snes-game">run Top Gear SNES game</h4>
 <div class="sourceCode" id="cb1"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb1-1" data-line-number="1">emu<span class="ot">.</span>core<span class="ot">(</span><span class="st">&#39;snes9x&#39;</span><span class="ot">)</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">emulatorid <span class="ot">=</span> emu<span class="ot">.</span>emulate<span class="ot">(-</span><span class="dv">1</span><span class="ot">,</span> <span class="st">&#39;topgear.sfc&#39;</span><span class="ot">,</span> vsimcorecfg<span class="ot">.</span>snes9x<span class="ot">)</span> </a></code></pre></div>
-<h2 id="emucorefnamenoext">emu.core(fnameNoExt)</h2>
+<h3 id="emucorefnamenoext">emu.core(fnameNoExt)</h3>
 <p>specify the emulator core to use with emulate() commmands</p>
-<h3 id="next-emulate-with-mame-core">next emulate() with MAME core</h3>
+<h4 id="next-emulate-with-mame-core">next emulate() with MAME core</h4>
 <div class="sourceCode" id="cb2"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb2-1" data-line-number="1">emu<span class="ot">.</span>core<span class="ot">(</span><span class="st">&quot;mame&quot;</span><span class="ot">)</span> <span class="do">-- needs mame.dll</span></a></code></pre></div>
-<h2 id="emugetmememulatoridbankoffsetnumbytes">emu.getmem(emulatorid,bank,offset,numbytes)</h2>
+<h3 id="emugetmememulatoridbankoffsetnumbytes">emu.getmem(emulatorid,bank,offset,numbytes)</h3>
 <p>get memory data from emulator; returns a lua string</p>
-<h2 id="emumemsizeemulatoridbank">emu.memsize(emulatorid,bank)</h2>
+<h3 id="emumemsizeemulatoridbank">emu.memsize(emulatorid,bank)</h3>
 <p>get size of memory from emulator</p>
-<h2 id="emusetmememulatoridbankoffsetbinstr">emu.setmem(emulatorid,bank,offset,binStr)</h2>
+<h3 id="emusetmememulatoridbankoffsetbinstr">emu.setmem(emulatorid,bank,offset,binStr)</h3>
 <p>change emulator memory data</p>
-<h3 id="show-some-numbers-at-top-of-c64-screen">show some numbers at top of C64 screen</h3>
+<h4 id="show-some-numbers-at-top-of-c64-screen">show some numbers at top of C64 screen</h4>
 <div class="sourceCode" id="cb3"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb3-1" data-line-number="1">emuN <span class="ot">=</span> <span class="dv">0</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">bank <span class="ot">=</span> <span class="dv">2</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">offset <span class="ot">=</span> <span class="dv">1024</span> <span class="do">-- C64 screen mem start</span></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">str <span class="ot">=</span> <span class="st">&quot;123456789&quot;</span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="do">-- (this was tested on vice-libretro)</span></a>
 <a class="sourceLine" id="cb3-6" data-line-number="6">emu<span class="ot">.</span>setmem<span class="ot">(</span>emuN<span class="ot">,</span> bank<span class="ot">,</span> offset<span class="ot">,</span> str<span class="ot">)</span></a></code></pre></div>
-<h2 id="emuresetemulatorid">emu.reset(emulatorid)</h2>
+<h3 id="emuresetemulatorid">emu.reset(emulatorid)</h3>
 <p>reset emulator machine</p>
-<h2 id="emuoptemulatoridpropertyvalue">emu.opt(emulatorid,property,value)</h2>
+<h3 id="emuoptemulatoridpropertyvalue">emu.opt(emulatorid,property,value)</h3>
 <p>specify emulator option</p>
-<h2 id="vsim_pause">vsim_pause</h2>
+<h3 id="vsim_pause">vsim_pause</h3>
 <p>set this emu option to string &quot;true&quot; to pause emulation</p>
-<h2 id="vsim_3daudio">vsim_3daudio</h2>
+<h3 id="vsim_3daudio">vsim_3daudio</h3>
 <p>set this emu option to string &quot;true&quot; to turn on positional audio from emulator</p>
-<h2 id="emuinsertemulatoriddrivenumdskfile">emu.insert(emulatorid,drivenum,dskfile)</h2>
+<h3 id="emuinsertemulatoriddrivenumdskfile">emu.insert(emulatorid,drivenum,dskfile)</h3>
 <p>insert virtual disk into emulator drive</p>
-<h2 id="emuejectemulatoriddrivenum">emu.eject(emulatorid,drivenum)</h2>
+<h3 id="emuejectemulatoriddrivenum">emu.eject(emulatorid,drivenum)</h3>
 <p>eject disk from virtual emulator drive</p>
-<h2 id="emudeleteemulatorid">emu.delete(emulatorid)</h2>
+<h3 id="emudeleteemulatorid">emu.delete(emulatorid)</h3>
 <p>delete emulator and node</p>
-<h2 id="emufullemulatorid">emu.full(emulatorid)</h2>
+<h3 id="emufullemulatorid">emu.full(emulatorid)</h3>
 <p>run emulator in the full window</p>
 <h1 id="models-and-positioning">Models and Positioning</h1>
-<h2 id="modelrez">model.rez</h2>
+<h3 id="modelrez">model.rez</h3>
 <p>Rez (instantiate) a 3d model (3ds dae xml x mdl lwo obj mesh bsp md2 md3 stl ply) NOTE: Not all models are compatible. YMMV.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb4-1" data-line-number="1">model<span class="ot">.</span>rez<span class="ot">(</span><span class="st">&#39;mymodel.3ds&#39;</span><span class="ot">)</span></a></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">local</span> mynodeid <span class="ot">=</span> model<span class="ot">.</span>rez<span class="ot">(</span><span class="st">&#39;myhouse.obj&#39;</span><span class="ot">)</span></a></code></pre></div>
-<h2 id="modelselnodeid">model.sel(nodeid)</h2>
+<h3 id="modelselnodeid">model.sel(nodeid)</h3>
 <p>change selected node which subsequent commands like pos() and rot() affect</p>
-<h2 id="vsim_cast_shadow">VSIM_CAST_SHADOW</h2>
+<h3 id="vsim_cast_shadow">VSIM_CAST_SHADOW</h3>
 <p>(model.put &quot;true&quot;): selected node casts a shadow (does not work on high-poly meshes)</p>
-<h2 id="modelskyskydometexturefnametextureperc-sphereperc-radius">model.sky(skydomeTextureFname,texturePerc, spherePerc, radius)</h2>
+<h3 id="modelskyskydometexturefnametextureperc-sphereperc-radius">model.sky(skydomeTextureFname,texturePerc, spherePerc, radius)</h3>
 <p>create a sky dome; texturePerc=0..1, spherePerc=0..2</p>
-<h2 id="vsim_ambient">VSIM_AMBIENT</h2>
+<h3 id="vsim_ambient">VSIM_AMBIENT</h3>
 <p>set this variable on any node to change ambient light color of entire scene</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb6-1" data-line-number="1">put<span class="ot">(</span><span class="st">&#39;VSIM_AMBIENT&#39;</span><span class="ot">,</span> <span class="dv">255</span><span class="ot">,</span><span class="dv">95</span><span class="ot">,</span> <span class="dv">95</span><span class="ot">,</span> <span class="dv">95</span><span class="ot">)</span></a></code></pre></div>
-<h2 id="modelputproperty-value1-value2">model.put(property, value1, value2..)</h2>
+<h3 id="modelputproperty-value1-value2">model.put(property, value1, value2..)</h3>
 <p>set an attribute on a node or the system</p>
-<h2 id="vsim_dbg_msgs">VSIM_DBG_MSGS</h2>
+<h3 id="vsim_dbg_msgs">VSIM_DBG_MSGS</h3>
 <p>set this attribute on any node to string &quot;true&quot; to show VSIM internal messages in STDOUT</p>
-<h2 id="modelparentnodeid">model.parent(nodeid)</h2>
+<h3 id="modelparentnodeid">model.parent(nodeid)</h3>
 <p>make the selected node a child of nodeid</p>
-<h2 id="modelposx-y-z">model.pos(x, y, z)</h2>
+<h3 id="modelposx-y-z">model.pos(x, y, z)</h3>
 <p>move the currently selected node</p>
-<h2 id="modelscalexscl-yscl-zscl">model.scale(xscl, yscl, zscl)</h2>
+<h3 id="modelscalexscl-yscl-zscl">model.scale(xscl, yscl, zscl)</h3>
 <p>scale the currently selected node</p>
-<h2 id="modelrotx-y-z">model.rot(x, y, z)</h2>
+<h3 id="modelrotx-y-z">model.rot(x, y, z)</h3>
 <p>rotate the currently selected node</p>
-<h2 id="modelmeshindices-vertices">model.mesh(indices, vertices)</h2>
+<h3 id="modelmeshindices-vertices">model.mesh(indices, vertices)</h3>
 <p>create a mesh from the specified tables</p>
-<h3 id="create-a-simple-triangle-mesh-and-a-node-from-it">create a simple triangle mesh and a node from it</h3>
+<h4 id="create-a-simple-triangle-mesh-and-a-node-from-it">create a simple triangle mesh and a node from it</h4>
 <div class="sourceCode" id="cb7"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb7-1" data-line-number="1">  c <span class="ot">=</span> <span class="ot">{</span> r<span class="ot">=</span><span class="dv">255</span><span class="ot">,</span> g<span class="ot">=</span><span class="dv">255</span><span class="ot">,</span> b<span class="ot">=</span><span class="dv">255</span><span class="ot">,</span> a<span class="ot">=</span><span class="dv">255</span> <span class="ot">}</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">  v <span class="ot">=</span> <span class="ot">{</span> <span class="ot">{</span> pos <span class="ot">=</span> <span class="ot">{</span>x<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span>y<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span>z<span class="ot">=</span><span class="dv">0</span><span class="ot">},</span> color<span class="ot">=</span>c<span class="ot">,</span> </a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  v <span class="ot">=</span> <span class="ot">{</span> <span class="ot">{</span> pos <span class="ot">=</span> <span class="ot">{</span>x<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span>y<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span>z<span class="ot">=</span><span class="dv">0</span><span class="ot">},</span> color<span class="ot">=</span>c<span class="ot">,</span></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3">         texturecoords <span class="ot">=</span> <span class="ot">{</span>u<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span> v<span class="ot">=</span><span class="dv">0</span><span class="ot">},</span></a>
 <a class="sourceLine" id="cb7-4" data-line-number="4">         normal <span class="ot">=</span> <span class="ot">{</span>x<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span>y<span class="ot">=</span><span class="dv">1</span><span class="ot">,</span>z<span class="ot">=</span><span class="dv">0</span><span class="ot">}</span> <span class="ot">},</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">       <span class="ot">{</span> pos <span class="ot">=</span> <span class="ot">{</span>x<span class="ot">=</span><span class="dv">10</span><span class="ot">,</span>y<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span>z<span class="ot">=</span><span class="dv">0</span><span class="ot">},</span> color<span class="ot">=</span>c<span class="ot">,</span> </a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">       <span class="ot">{</span> pos <span class="ot">=</span> <span class="ot">{</span>x<span class="ot">=</span><span class="dv">10</span><span class="ot">,</span>y<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span>z<span class="ot">=</span><span class="dv">0</span><span class="ot">},</span> color<span class="ot">=</span>c<span class="ot">,</span></a>
 <a class="sourceLine" id="cb7-6" data-line-number="6">         texturecoords <span class="ot">=</span> <span class="ot">{</span>u<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span> v<span class="ot">=</span><span class="dv">1</span><span class="ot">},</span></a>
 <a class="sourceLine" id="cb7-7" data-line-number="7">         normal <span class="ot">=</span> <span class="ot">{</span>x<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span>y<span class="ot">=</span><span class="dv">1</span><span class="ot">,</span>z<span class="ot">=</span><span class="dv">0</span><span class="ot">}</span> <span class="ot">},</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">       <span class="ot">{</span> pos <span class="ot">=</span> <span class="ot">{</span>x<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span>y<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span>z<span class="ot">=</span><span class="dv">10</span><span class="ot">},</span> color<span class="ot">=</span>c<span class="ot">,</span>  </a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">       <span class="ot">{</span> pos <span class="ot">=</span> <span class="ot">{</span>x<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span>y<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span>z<span class="ot">=</span><span class="dv">10</span><span class="ot">},</span> color<span class="ot">=</span>c<span class="ot">,</span></a>
 <a class="sourceLine" id="cb7-9" data-line-number="9">         texturecoords <span class="ot">=</span> <span class="ot">{</span>u<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span> v<span class="ot">=</span><span class="dv">0</span><span class="ot">},</span></a>
 <a class="sourceLine" id="cb7-10" data-line-number="10">         normal <span class="ot">=</span> <span class="ot">{</span>x<span class="ot">=</span><span class="dv">0</span><span class="ot">,</span>y<span class="ot">=</span><span class="dv">1</span><span class="ot">,</span>z<span class="ot">=</span><span class="dv">0</span><span class="ot">}</span> <span class="ot">}</span> <span class="ot">}</span></a>
 <a class="sourceLine" id="cb7-11" data-line-number="11">  i <span class="ot">=</span> <span class="ot">{</span><span class="dv">1</span><span class="ot">,</span><span class="dv">2</span><span class="ot">,</span><span class="dv">3</span><span class="ot">}</span></a>
 <a class="sourceLine" id="cb7-12" data-line-number="12">  meshid<span class="ot">=</span>model<span class="ot">.</span>mesh<span class="ot">(</span>i<span class="ot">,</span>v<span class="ot">)</span></a>
 <a class="sourceLine" id="cb7-13" data-line-number="13">  id<span class="ot">=</span>model<span class="ot">.</span>node<span class="ot">(</span>meshid<span class="ot">)</span></a></code></pre></div>
-<h2 id="modelnodemeshid">model.node(meshid)</h2>
+<h3 id="modelnodemeshid">model.node(meshid)</h3>
 <p>add a scene node based on a mesh</p>
-<h2 id="modelpointlightr-g-b-radius">model.pointlight(r, g, b, radius)</h2>
+<h3 id="modelpointlightr-g-b-radius">model.pointlight(r, g, b, radius)</h3>
 <p>add a point light; rgb 0..1</p>
-<h2 id="modeltextureimgfname-n">model.texture(imgfname, [n]</h2>
+<h3 id="modeltextureimgfname-n">model.texture(imgfname, [n]</h3>
 <p>apply an image as a texture to a node; optional texture num n</p>
-<h2 id="modelline3dexx1y1z1x2y2z2clr">model.line3dex(x1,y1,z1,x2,y2,z2,clr)</h2>
+<h3 id="modelline3dexx1y1z1x2y2z2clr">model.line3dex(x1,y1,z1,x2,y2,z2,clr)</h3>
 <p>add a 3d line with thickness</p>
-<h2 id="modelline3dx1y1z1x2y2z2clr">model.line3d(x1,y1,z1,x2,y2,z2,clr)</h2>
+<h3 id="modelline3dx1y1z1x2y2z2clr">model.line3d(x1,y1,z1,x2,y2,z2,clr)</h3>
 <p>add a 3d line</p>
-<h2 id="modelgetproperty">model.get(property)</h2>
+<h3 id="modelgetproperty">model.get(property)</h3>
 <p>get attribute value of selected node</p>
-<h2 id="modellookatxyz">model.lookat(x,y,z)</h2>
+<h3 id="modellookatxyz">model.lookat(x,y,z)</h3>
 <p>aim the camera at a position</p>
-<h2 id="modelsitonnodeid">model.siton(nodeid)</h2>
+<h3 id="modelsitonnodeid">model.siton(nodeid)</h3>
 <p>position and look direction of selected node becomes relative to nodeid</p>
-<h2 id="modelflyx1y1z1x2y2z2mslooprepeat">model.fly(x1,y1,z1,x2,y2,z2,ms,loop,repeat)</h2>
+<h3 id="modelflyx1y1z1x2y2z2mslooprepeat">model.fly(x1,y1,z1,x2,y2,z2,ms,loop,repeat)</h3>
 <p>animate selected node; loop/repeat string &quot;true&quot; or &quot;false&quot;</p>
 <h1 id="flow-control">Flow Control</h1>
-<h2 id="flowwaitms-funcname-repeat">flow.wait(ms, funcname, repeat)</h2>
+<h3 id="flowwaitms-funcname-repeat">flow.wait(ms, funcname, repeat)</h3>
 <p>wait X milliseconds and then run a function by name</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb8-1" data-line-number="1">flow<span class="ot">.</span>wait<span class="ot">(</span><span class="dv">1000</span><span class="ot">,</span> <span class="st">&quot;myFunction&quot;</span><span class="ot">)</span></a></code></pre></div>
-<h3 id="calls-funcrepeats-approx-every-20-ms">calls funcRepeats() approx. every 20 ms</h3>
+<h4 id="calls-funcrepeats-approx-every-20-ms">calls funcRepeats() approx. every 20 ms</h4>
 <div class="sourceCode" id="cb9"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb9-1" data-line-number="1">flow<span class="ot">.</span>wait<span class="ot">(</span><span class="dv">20</span><span class="ot">,</span> <span class="st">&quot;funcRepeats&quot;</span><span class="ot">,</span> <span class="st">&quot;repeat&quot;</span><span class="ot">)</span></a></code></pre></div>
-<h2 id="flowonevent-funcname">flow.on(event, funcname)</h2>
+<h3 id="flowwaitui">flow.waitui()</h3>
+<p>wait for UI to process all lua commands</p>
+<h3 id="flowchdirpath">flow.chdir(path)</h3>
+<p>change current working directory</p>
+<h3 id="flowonevent-funcname">flow.on(event, funcname)</h3>
 <p>call a handler on event trigger</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb10-1" data-line-number="1">flow<span class="ot">.</span>on<span class="ot">(</span><span class="st">&quot;keydown&quot;</span><span class="ot">,</span> <span class="st">&quot;mykeyhandler&quot;</span><span class="ot">)</span></a></code></pre></div>
 <div class="sourceCode" id="cb11"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb11-1" data-line-number="1">flow<span class="ot">.</span>on<span class="ot">(</span><span class="st">&quot;mousedownobj&quot;</span><span class="ot">,</span> <span class="st">&quot;mynodeclickhandler&quot;</span><span class="ot">)</span></a></code></pre></div>
-<h3 id="menu-example">Menu example</h3>
+<h4 id="menu-example">Menu example</h4>
 <div class="sourceCode" id="cb12"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="fu">require</span> <span class="st">&#39;utils&#39;</span></a>
 <a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">function</span> menukey<span class="ot">(</span>code<span class="ot">,</span> char<span class="ot">)</span> </a>
 <a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="kw">if</span> handler <span class="ot">~=</span> <span class="kw">nil</span> <span class="kw">then</span> handler<span class="ot">(</span>char<span class="ot">)</span> <span class="kw">end</span></a>
@@ -226,34 +229,32 @@
 <a class="sourceLine" id="cb12-37" data-line-number="37"> </a>
 <a class="sourceLine" id="cb12-38" data-line-number="38">menutest<span class="ot">()</span></a></code></pre></div>
 <h1 id="physics">Physics</h1>
-<h2 id="physicsforcefxfyfzpxpypz">physics.force(fx,fy,fz,px,py,pz)</h2>
+<h3 id="physicsforcefxfyfzpxpypz">physics.force(fx,fy,fz,px,py,pz)</h3>
 <p>add a force w/dir (fx,fy,fz) and rel. pos (px,py,pz); returns forceid</p>
-<h2 id="physicsdelforceforceid">physics.delforce(forceid)</h2>
+<h3 id="physicsdelforceforceid">physics.delforce(forceid)</h3>
 <p>remove force</p>
-<h2 id="physicsdeltorquetorqueid">physics.deltorque(torqueid)</h2>
+<h3 id="physicsdeltorquetorqueid">physics.deltorque(torqueid)</h3>
 <p>remove torque</p>
-<h2 id="physicstorquetxtytz">physics.torque(tx,ty,tz)</h2>
+<h3 id="physicstorquetxtytz">physics.torque(tx,ty,tz)</h3>
 <p>add a torque around axis tx,ty,tz ; longer vector = greater torque; returns torqueid</p>
-<h2 id="physicsimpulsefxfxyzpxpypz">physics.impulse(fx,fx,yz,px,py,pz)</h2>
+<h3 id="physicsimpulsefxfxyzpxpypz">physics.impulse(fx,fx,yz,px,py,pz)</h3>
 <p>apply an impulse given direction and relative position</p>
-<h2 id="collision">collision</h2>
+<h3 id="collision">collision</h3>
 <p>Enable collisions by setting this attribute</p>
-<h3 id="enable-collision-and-set-mass-to-5">enable collision and set mass to 5</h3>
+<h4 id="enable-collision-and-set-mass-to-5">enable collision and set mass to 5</h4>
 <div class="sourceCode" id="cb13"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb13-1" data-line-number="1">model<span class="ot">.</span>put<span class="ot">(</span><span class="st">&quot;collision&quot;</span><span class="ot">,</span> <span class="st">&quot;gimpact&quot;</span><span class="ot">,</span> <span class="dv">5</span><span class="ot">)</span></a></code></pre></div>
 <h1 id="user-interface">User Interface</h1>
-<h2 id="uiscreeninpwhich">ui.screeninp(which)</h2>
+<h3 id="uiscreeninpwhich">ui.screeninp(which)</h3>
 <p>keys used for movement (0), console (1) or emulator(2+)</p>
-<h2 id="flowwaitui">flow.waitui()</h2>
-<p>wait for UI to process all lua commands</p>
-<h2 id="printarg1arg2">print(arg1,arg2..)</h2>
-<h2 id="uicls">ui.cls()</h2>
-<h2 id="vsim_overlay">VSIM_OVERLAY</h2>
+<h3 id="printarg1arg2">print(arg1,arg2..)</h3>
+<h3 id="uicls">ui.cls()</h3>
+<h3 id="vsim_overlay">VSIM_OVERLAY</h3>
 <p>set w/model.put on any node to png filename to change the overlay image</p>
-<h2 id="uiscreennum">ui.screen(num)</h2>
+<h3 id="uiscreennum">ui.screen(num)</h3>
 <p>create a new screen or switch to an existing; print() and palette() affect this screen</p>
-<h2 id="uiscreenonnodeid">ui.screenon(nodeid)</h2>
+<h3 id="uiscreenonnodeid">ui.screenon(nodeid)</h3>
 <p>apply emu or ui screen as a texture to a node</p>
-<h3 id="texture-a-node-with-an-emulator-screen">texture a node with an emulator screen</h3>
+<h4 id="texture-a-node-with-an-emulator-screen">texture a node with an emulator screen</h4>
 <div class="sourceCode" id="cb14"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb14-1" data-line-number="1">geom <span class="ot">=</span> <span class="fu">require</span> <span class="st">&#39;geom&#39;</span></a>
 <a class="sourceLine" id="cb14-2" data-line-number="2"><span class="fu">require</span> <span class="st">&#39;utils&#39;</span></a>
 <a class="sourceLine" id="cb14-3" data-line-number="3">i<span class="ot">,</span>v <span class="ot">=</span> geom<span class="ot">.</span>face2<span class="ot">(</span><span class="dv">0.5</span><span class="ot">,</span><span class="dv">0.5</span><span class="ot">,</span><span class="dv">1</span><span class="ot">,</span><span class="dv">0</span><span class="ot">,</span><span class="dv">0</span><span class="ot">,</span><span class="dv">0</span><span class="ot">)</span></a>
@@ -269,7 +270,7 @@
 <a class="sourceLine" id="cb14-13" data-line-number="13">  ui<span class="ot">.</span>screenon<span class="ot">(</span>rtype<span class="ot">)</span></a>
 <a class="sourceLine" id="cb14-14" data-line-number="14"><span class="kw">end</span></a>
 <a class="sourceLine" id="cb14-15" data-line-number="15">flow<span class="ot">.</span>wait<span class="ot">(</span><span class="dv">2000</span><span class="ot">,</span> <span class="st">&#39;emustarted&#39;</span><span class="ot">)</span></a></code></pre></div>
-<h3 id="write-some-text-on-a-meshnode">write some text on a mesh/node</h3>
+<h4 id="write-some-text-on-a-meshnode">write some text on a mesh/node</h4>
 <div class="sourceCode" id="cb15"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb15-1" data-line-number="1">geom <span class="ot">=</span> <span class="fu">require</span> <span class="st">&#39;geom&#39;</span></a>
 <a class="sourceLine" id="cb15-2" data-line-number="2">i<span class="ot">,</span>v <span class="ot">=</span> geom<span class="ot">.</span>face2<span class="ot">(</span><span class="dv">5</span><span class="ot">,</span><span class="dv">5</span><span class="ot">,</span><span class="dv">0</span><span class="ot">,</span><span class="dv">0</span><span class="ot">,</span><span class="dv">0</span><span class="ot">)</span></a>
 <a class="sourceLine" id="cb15-3" data-line-number="3">labelMesh <span class="ot">=</span> model<span class="ot">.</span>mesh<span class="ot">(</span>i<span class="ot">,</span>v<span class="ot">)</span></a>
@@ -279,19 +280,19 @@
 <a class="sourceLine" id="cb15-7" data-line-number="7">flow<span class="ot">.</span>waitui<span class="ot">()</span></a>
 <a class="sourceLine" id="cb15-8" data-line-number="8">ui<span class="ot">.</span>screenon<span class="ot">()</span></a>
 <a class="sourceLine" id="cb15-9" data-line-number="9">ui<span class="ot">.</span>screen<span class="ot">(</span><span class="dv">0</span><span class="ot">)</span></a></code></pre></div>
-<h2 id="uipaletteindexrgba">ui.palette(index,r,g,b,a)</h2>
+<h3 id="uipaletteindexrgba">ui.palette(index,r,g,b,a)</h3>
 <p>change color values at index</p>
-<h2 id="uishowscreennum">ui.showscreen(num)</h2>
+<h3 id="uishowscreennum">ui.showscreen(num)</h3>
 <p>show console (1) or hide (0)</p>
-<h2 id="uifiledialogtitle-filetypes">ui.filedialog(title, filetypes)</h2>
+<h3 id="uifiledialogtitle-filetypes">ui.filedialog(title, filetypes)</h3>
 <p>Open a file dialog and return the selected filename</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb16-1" data-line-number="1">f<span class="ot">=</span>ui<span class="ot">.</span>filedialog<span class="ot">(</span><span class="st">&#39;Choose file&#39;</span><span class="ot">,</span> <span class="st">&quot;Any file\0*.*\0&quot;</span></a></code></pre></div>
-<h2 id="uidrawid-commands">ui.draw(id, commands)</h2>
+<h3 id="uidrawid-commands">ui.draw(id, commands)</h3>
 <p>add, update or delete draw commands based on Cairo. Commands and arguments separated by spaces. id -1 to append, blank command string to delete. Available commands: font, size, path (start new path), move x y, line x y, sub (new subpath), end (end sub-path), scale x y, trans x y, save (save state), rest (restore state), arc x y radius degreestart degreeend, curve (cubic Bezier) dx1 dy1 dx2 dy2 dx3 dy3, rot deg, rect x y w h, color r g b a (0..1), fill, stroke (fill/stroke required to actually output shapes). See Cairo documentation and the following examples.</p>
-<h3 id="load-and-select-font-then-change-the-command-list-at-that-index-to-use-a-different-font">load and select font; then change the command list at that index to use a different font</h3>
+<h4 id="load-and-select-font-then-change-the-command-list-at-that-index-to-use-a-different-font">load and select font; then change the command list at that index to use a different font</h4>
 <div class="sourceCode" id="cb17"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb17-1" data-line-number="1">f<span class="ot">=</span>ui<span class="ot">.</span>draw<span class="ot">(-</span><span class="dv">1</span><span class="ot">,</span> <span class="st">&quot;font fonts</span><span class="ot">\\</span><span class="st">Open_Sans.ttf size 20&quot;</span></a>
 <a class="sourceLine" id="cb17-2" data-line-number="2">ui<span class="ot">.</span>draw<span class="ot">(</span>f<span class="ot">,</span> <span class="st">&quot;font MyFont.ttf size 22&quot;</span><span class="ot">)</span></a></code></pre></div>
-<h3 id="creates-a-rotating-plus-with-label-indicating-degrees-rotated">creates a rotating plus with label indicating degrees rotated</h3>
+<h4 id="creates-a-rotating-plus-with-label-indicating-degrees-rotated">creates a rotating plus with label indicating degrees rotated</h4>
 <div class="sourceCode" id="cb18"><pre class="sourceCode lua"><code class="sourceCode lua"><a class="sourceLine" id="cb18-1" data-line-number="1">ui<span class="ot">.</span>palette<span class="ot">(</span><span class="dv">1</span><span class="ot">,</span><span class="dv">0</span><span class="ot">,</span><span class="dv">0</span><span class="ot">,</span><span class="dv">0</span><span class="ot">,</span><span class="dv">0</span><span class="ot">)</span> <span class="do">-- transparent screen (console) background</span></a>
 <a class="sourceLine" id="cb18-2" data-line-number="2">ui<span class="ot">.</span>cls<span class="ot">()</span></a>
 <a class="sourceLine" id="cb18-3" data-line-number="3">ui<span class="ot">.</span>draw<span class="ot">(-</span><span class="dv">1</span><span class="ot">,</span> <span class="st">&quot;trans 200 200&quot;</span><span class="ot">)</span></a>
@@ -313,26 +314,22 @@
 <a class="sourceLine" id="cb18-19" data-line-number="19"><span class="kw">end</span></a>
 <a class="sourceLine" id="cb18-20" data-line-number="20"><span class="do">-- animate by updating draw command list every 16 ms</span></a>
 <a class="sourceLine" id="cb18-21" data-line-number="21">flow<span class="ot">.</span>wait<span class="ot">(</span><span class="dv">16</span><span class="ot">,</span> <span class="st">&#39;dorot&#39;</span><span class="ot">,</span> <span class="st">&#39;repeat&#39;</span><span class="ot">)</span></a></code></pre></div>
-<h2 id="uitextid-string">ui.text(id, string)</h2>
+<h3 id="uitextid-string">ui.text(id, string)</h3>
 <p>add,update, or delete a text element at the current x, y coordinate</p>
 <h1 id="networking">Networking</h1>
-<h2 id="netgeturlurl-callback">net.geturl(url, callback)</h2>
+<h3 id="netgeturlurl-callback">net.geturl(url, callback)</h3>
 <p>HTTP GET and return response body to callback function</p>
-<h2 id="netsaveurlurl-fname-callback">net.saveurl(url, fname, callback)</h2>
+<h3 id="netsaveurlurl-fname-callback">net.saveurl(url, fname, callback)</h3>
 <p>HTTP GET and save response to fname</p>
 <h1 id="utilities">Utilities</h1>
-<h2 id="emucmdcore-argswspaces">emucmd(core, argswspaces)</h2>
+<h3 id="emucmdcore-argswspaces">emucmd(core, argswspaces)</h3>
 <p>run a .cmd that simulates cmd-line for emulator</p>
-<h2 id="dirglob">dir(glob)</h2>
+<h3 id="dirglob">dir(glob)</h3>
 <p>List files in directory</p>
 <h1 id="7-zip-compression-and-decompression">7-zip compression and decompression</h1>
-<h2 id="unzipfname">unzip(fname)</h2>
+<h3 id="unzipfname">unzip(fname)</h3>
 <p>unzip a file (uses 7-Zip, LGPL, <a href="http://www.7-zip.org">www.7-zip.org</a>)</p>
-<h1 id="love-2d-engine">love 2D engine</h1>
-<h2 id="lovewaitplugindir">lovewait(plugindir)</h2>
-<p>run a love program from vsimroot/lua/plugindir/main.lua and return the stdout as a string</p>
-<h2 id="loveplugindir">love(plugindir)</h2>
-<p>run a love program from vsimroot/lua/plugindir/main.lua in the background i.e. dont wait for it to finish</p>
+
  </div>
  
  <footer id="footer">
