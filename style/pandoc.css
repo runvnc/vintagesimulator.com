@@ -77,6 +77,6 @@ code span.va { color: #27aeae; } /* Variable */
 code span.vs { color: #da4453; } /* VerbatimString */
 code span.wa { color: #da4453; } /* Warning */
 
-code {
+pre {
   margin-left: 10%;
 }
