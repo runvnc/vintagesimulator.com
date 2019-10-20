@@ -78,5 +78,5 @@ code span.vs { color: #da4453; } /* VerbatimString */
 code span.wa { color: #da4453; } /* Warning */
 
 pre {
-  margin-left: 10%;
+  margin-left: 50px;
 }
