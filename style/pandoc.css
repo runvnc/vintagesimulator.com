@@ -6,6 +6,16 @@ table {
   background-color: #fff;
 }
 
+h3 {
+  font-family: 'Oxygen Mono',monospace;
+  color: #fff;
+  padding: 24px 30px;
+  line-height: 1.5;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
 code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
