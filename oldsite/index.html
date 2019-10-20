@@ -1,0 +1,152 @@
+<html>
+  <head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PF5XNLQ');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74296426-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74296426-2');
+</script>
+
+
+    <title>Vintage Simulator (VSIM)</title>
+
+    <style type="text/css">
+html, body, div, p, span, td, th, tr, img {
+  color: cyan;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+      body {
+       background-image: url('vsimheader.png');
+       background-position: center top;
+       background-repeat: no-repeat; 
+       height: 100vh;
+       background-color: #63658D;
+      }
+
+      .page {
+        height: 100vh;
+      }
+
+      .panel {
+        background-color: rgba(0,0,0,0.5);
+        margin: 10px 10px 10px 10px;
+        padding: 10px 10px 10px 10px;
+      }
+
+      .intro {
+        width: 40%;
+        background-image: none;
+	float: left;
+      }
+
+      .content {
+        clear: left;
+	width: 60%;
+        background-image: none;
+        background-color: rgba(0,0,0,0.8);
+      }
+
+      .gallery {
+        float: right;
+        width: 45%;
+	padding: 0px 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	marding-left:0px;
+	margin-right: 10%;
+      }
+
+      .gal {
+        display: inline-block;
+	width: 100%;
+	margin-right: 10%;
+      }
+
+      .gallery img {
+        width: 100%;
+	margin-right: 10%;
+      }
+
+      .gallery ul {
+        list-style-type: none;
+      }
+
+      h1, h2 {
+        color: magenta;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PF5XNLQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <div class="page">
+      <h1 class = "panel">Vintage Simulator (VSIM)</h1>
+
+      <div class="panel intro">
+        Vintage Simulator is a (currently 100% FREE) custom libretro front-end (sharing zero code with RetroArch)
+        with the following features:
+
+        <ul>
+          <li>Implements most of the libretro API</li>
+          <li>Run several emulators at the same time</li>
+          <li>Full Lua scripting API</li>
+          <li>3D graphics and sound</li>
+          <li>Easily load most 3D models such as 3DS or OBJ</li>
+          <li>Bullet Physics engine</li>
+          <li>Plugins</li>
+          <li>Includes LOVE plugin (for UI screens in separate windows 
+              or generating textures etc.)</li>
+        </ul>
+      </div>
+
+      <div class="panel gallery">
+        <ul class="gal">
+          <li>
+	    <img src="c64tst.png"/>
+            <img src="manycores.png"/>
+
+	    <img src="specmag.png"/>
+	    <img src="specmag1.png"/>
+          </li>
+        </ul> 
+      </div>
+
+      <div class = "panel content">With VSIM you can create your own virtual collection of vintage computers, consoles, and software,
+        all represented in 3D.  Or, using the physics and memory access features, build a spacecraft with 
+        flight control software written in C64 assembler.  Set up anything you can imagine by importing
+        libretro cores, your own 3D models, and writing Lua code.</div>
+
+      <div class="panel content"><a target="_blank" href="https://github.com/runvnc/VSIMdocs"><h2>Documentation</h2></a> 
+      </div>
+
+      <div class="panel content">
+        <em>Note: VSIM is currently in a "pre-pre alpha" development stage.  Documentation is incomplete and there
+          may be various bugs.</em> Unzip into c:\vsim (if the path has spaces then plugins won't install)
+
+        <a href="vsim0619.zip"><h2>Direct Download (Windows)</h2></a>
+      Start with command "vsim.exe 5 0.0025" to specify slower mouselook unless you are using a trackpad like me.
+      </div>
+
+    </div>
+  </body>
+
+</html>

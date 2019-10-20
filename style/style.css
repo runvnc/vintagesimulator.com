@@ -1,0 +1,103 @@
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,
+samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {margin:0;padding:0;border:0 none;outline:0;font-size:100%;vertical-align:baseline;box-sizing:border-box}
+body {line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block}
+nav ul {list-style:none}
+blockquote,q {quotes:none}
+blockquote:before,blockquote:after,q:before,q:after {content:'';content:none}
+a {margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+ins {background-color:#ff9;color:#000;text-decoration:none}
+mark {background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del {text-decoration:line-through}
+abbr[title],dfn[title] {border-bottom:1px dotted;cursor:help}
+table {border-collapse:collapse;border-spacing:0}
+hr {border-left:0 none; border-right:0 none; border-bottom:0 none; display:block;height:1px;border-top:1px solid #cccccc;margin:1em 0;padding:0}
+input,select {vertical-align:middle}
+
+body {background:#63678d}
+
+@font-face {font-family:'C64 Mono';src:url('fonts/c64_pro_mono-style.eot');
+src:url('fonts/c64_pro_mono-style.eot@') format('embedded-opentype'),url('fonts/c64_pro_mono-style.woff2') format('woff2'),
+url('fonts/c64_pro_mono-style.woff') format('woff'),url('fonts/c64_pro_mono-style.ttf') format('truetype'),
+url('fonts/c64_pro_mono-style.svg') format('svg');
+font-weight:normal;font-style:normal}
+
+@font-face {font-family:'C64';src:url('fonts/c64_pro-style.eot');
+src:url('fonts/c64_pro-style.eot@') format('embedded-opentype'),url('fonts/c64_pro-style.woff2') format('woff2'),
+url('fonts/c64_pro-style.woff') format('woff'),url('fonts/c64_pro-style.ttf') format('truetype'),
+url('fonts/c64_pro-style.svg') format('svg');
+font-weight:normal;font-style:normal}
+
+@font-face {font-family:'Speccy';src:url('fonts/zxspectrum7hm.eot');
+src:url('fonts/zxspectrum7hm.eot@') format('embedded-opentype'),url('fonts/zxspectrum7hm.woff2') format('woff2'),
+url('fonts/zxspectrum7hm.woff') format('woff'),url('fonts/zxspectrum7hm.ttf') format('truetype'),
+url('fonts/zxspectrum7hm.svg') format('svg');
+font-weight:normal;font-style:normal}
+
+@font-face {font-family:'SpeccyB';src:url('http://0843jl.hmlive.com/style/fonts/');
+src:url('http://0843jl.hmlive.com/style/fonts/') format('embedded-opentype'),url('http://0843jl.hmlive.com/style/fonts/') format('woff2'),
+url('http://0843jl.hmlive.com/style/fonts/') format('woff'),url('http://0843jl.hmlive.com/style/fonts/') format('truetype'),
+url('http://0843jl.hmlive.com/style/fonts/') format('svg');
+font-weight:bold;font-style:bold}
+
+.f1 {font-family:'Share Tech Mono',monospace;}
+.f2 {font-family:'Ubuntu Mono',monospace;}
+.f3 {font-family:'Fira Mono', monospace;}
+.f4 {font-family:'Share',cursive;}
+.f5 {font-family:'Oxygen Mono',monospace}
+
+h1 {margin:0 auto;padding:30px;max-width:1200px;font-family:C64;font-size:24px;font-weight:normal;color:#0ff}
+p {font-family:'Oxygen Mono',monospace;color:#fff;padding:24px 30px;line-height:1.5}
+ul {padding:17px 60px;background:rgba(0,0,0,.7);list-style:none}
+li {font-family:'Oxygen Mono',monospace;color:#ff0;line-height:2}
+li:before {display:inline-block;content:"*";margin:0 10px 0 0;font-family:C64;vertical-align:bottom;color:#f00}
+
+a {color:#0ff}
+
+#container {position:relative}
+#header {}
+#header nav {text-align:right}
+#header nav a {display:inline-block;margin:0 10px;padding:20px;background:#f0f;color:#fff;font-family:C64;text-decoration:none;box-shadow:16px 16px rgba(0,0,0,.5)}
+
+#main {margin:20px auto 100px;max-width:1200px;background:rgba(0,0,0,.5)}
+#main img {max-width:100%}
+#main figure {margin:0 auto 30px;width:fit-content;text-align:center;font-size:0;text-indent:0}
+#main figure figcaption {padding:4px 16px;text-align:center;background:#fff;font-size:16px;font-family:C64;color:#f0f;font-size:16px}
+#main figure.right {float:right;margin:0 0 30px 30px;width:50%;box-shadow:16px 16px rgba(0,0,0,.5)}
+#main figure.right img {border:16px solid #fff}
+
+#backer_top,#backer_bottom {position:absolute;top:0;width:100%;height:100%;background-size:100%;background-position:center top;background-repeat:no-repeat}
+
+@media only screen and (min-width:1801px) {
+#backer_top {background-image:url("../images/BackgroundTop_full.jpg")}
+#backer_bottom {background-image:url("../images/BackgroundBottom.png")}
+}
+@media only screen and (min-width:1601px) and (max-width:1800px) {
+#backer_top {background-image:url("../images/BackgroundTop_1800.jpg")}
+#backer_bottom {background-image:url("http://0843jl.hmlive.com/images/BackgroundBottom_1800.png")}
+}
+@media only screen and (min-width:1401px) and (max-width:1600px) {
+#backer_top {background-image:url("../images/BackgroundTop_1600.jpg")}
+#backer_bottom {background-image:url("../images/BackgroundBottom_1600.png")}
+}
+@media only screen and (min-width:1201px) and (max-width:1400px) {
+#backer_top {background-image:url("../images/BackgroundTop_1400.jpg")}
+#backer_bottom {background-image:url("../images/BackgroundBottom_1400.png")}
+}
+@media only screen and (min-width:1001px) and (max-width:1200px) {
+#backer_top {background-image:url("../images/BackgroundTop_1200.jpg")}
+#backer_bottom {background-image:url("../images/BackgroundBottom_1200.png")}
+}
+@media only screen and (min-width:801px) and (max-width:1000px) {
+#backer_top {background-image:url("../images/BackgroundTop_1000.jpg")}
+#backer_bottom {background-image:url("../images/BackgroundBottom_1000.png")}
+}
+@media only screen and (min-width:401px) and (max-width:800px) {
+#backer_top {background-image:url("../images/BackgroundTop_800.jpg")}
+#backer_bottom {background-image:url("../images/BackgroundBottom_800.png")}
+}
+@media only screen and (max-width:400px) {
+#backer_top {background-image:url("../images/BackgroundTop_400.jpg")}
+#backer_bottom {background-image:url("../images/BackgroundBottom_400.png")}
+}
