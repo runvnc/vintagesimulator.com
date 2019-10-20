@@ -1,15 +1,3 @@
-# Intro
-## About VSIM
-Vintage Simulator is a (currently 100% FREE) custom libretro front-end (sharing zero code with RetroArch) with the following features:
-* Implements most of the libretro API
-* Run several emulators at the same time
-* Full Lua scripting API
-* 3D graphics and sound
-* Easily load most 3D models such as 3DS or OBJ
-* Bullet Physics engine
-* Plugins
-* includes LOVE plugin (for UI screens in separate windows or generating textures etc.)
-
 ## Developers
 VSIM is a work in progress.  VSIM is currently primarily aimed at programmers who are interested in things like emulation, Lua, 3D models, or physics simulation.  For example, it can provide a good starting point for creating your own custom front-end for libretro.  The hope is that some developers will be interested and will create plugins that add functionality or content that non-programmers can easily access.
 
