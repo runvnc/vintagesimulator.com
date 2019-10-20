@@ -1,4 +1,12 @@
-     code{white-space: pre-wrap;}
+h2 {
+  padding:4px 16px;text-align:center;background:#fff;font-size:16px;font-family:C64;color:#f0f;font-size:16px
+}    
+
+table {
+  background-color: #fff;
+}
+
+code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
@@ -69,3 +77,6 @@ code span.va { color: #27aeae; } /* Variable */
 code span.vs { color: #da4453; } /* VerbatimString */
 code span.wa { color: #da4453; } /* Warning */
 
+code {
+  margin-left: 10%;
+}
