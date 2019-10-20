@@ -99,3 +99,7 @@ code span.wa { color: #da4453; } /* Warning */
 pre {
   margin-left: 50px;
 }
+
+table {
+  margin-left: 10%;
+}
