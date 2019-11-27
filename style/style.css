@@ -48,12 +48,26 @@ font-weight:bold;font-style:bold}
 .f5 {font-family:'Oxygen Mono',monospace}
 
 h1 {margin:0 auto;padding:30px;max-width:1200px;font-family:C64;font-size:24px;font-weight:normal;color:#0ff}
+h2 {margin:0 0 16px;font-family:'Oxygen Mono',monospace;font-size:18px;font-weight:normal;color:#0cc}
+h3 {margin:0 0 12px;font-family:'Oxygen Mono',monospace;font-size:16px;font-weight:normal;color:#ff0}
 p {font-family:'Oxygen Mono',monospace;color:#fff;padding:24px 30px;line-height:1.5}
 ul {padding:17px 60px;background:rgba(0,0,0,.7);list-style:none}
 li {font-family:'Oxygen Mono',monospace;color:#ff0;line-height:2}
 li:before {display:inline-block;content:"*";margin:0 10px 0 0;font-family:C64;vertical-align:bottom;color:#f00}
 
+li.ms:before {content:'';background:url(icons/Ms-PacMan-IR.gif) no-repeat 0px 0px;width:26px;height:25px;vertical-align:text-bottom}
+li.dd:before {content:'';background:url(icons/DigDug.gif) no-repeat 0px 0px;width:26px;height:25px;vertical-align:text-bottom}
+li.mario:before {content:'';background:url(icons/Mario.gif) no-repeat 0px 0px;width:26px;height:25px;vertical-align:text-bottom}
+li.si:before {content:'';background:url(icons/SpaceInvader.gif) no-repeat 0px 0px;width:26px;height:25px;vertical-align:text-bottom}
+li.bb:before {content:'';background:url(icons/BubbleBobble.gif) no-repeat 0px 0px;width:26px;height:25px;vertical-align:text-bottom}
+li.joust:before {content:'';background:url(icons/Joust.gif) no-repeat 0px 0px;width:26px;height:25px;vertical-align:text-bottom}
+li.bz:before {content:'';background:url(icons/Berzerk.gif) no-repeat 0px 0px;width:26px;height:25px;vertical-align:text-bottom}
+li.bt:before {content:'';background:url(icons/BurgerTime.gif) no-repeat 0px 0px;width:26px;height:25px;vertical-align:text-bottom}
+
 a {color:#0ff}
+
+pre {margin:0 0 36px;padding:16px;border:1px solid #0ff;color:#fff;background:#066;box-shadow:8px 8px 0 rgba(0,0,0,.5);line-height:1.7}
+code {font-size:16px}
 
 #container {position:relative}
 #header {}
@@ -68,6 +82,18 @@ a {color:#0ff}
 #main figure.right img {border:16px solid #fff}
 
 #backer_top,#backer_bottom {position:absolute;top:0;width:100%;height:100%;background-size:100%;background-position:center top;background-repeat:no-repeat}
+
+#md_box {padding:30px}
+#md_box h1 {margin:24px 0;padding:0}
+#md_box h2 {margin:8px 0 10px;font-size:20px}
+#md_box p {padding:0 0 30px;font-size:16px}
+#md_box ul {margin:0 0 30px}
+
+table {margin:0 0 38px;border:1px solid #0ff;background:#088;color:#fff;font-family:"Oxygen Mono";line-height:1.7;box-shadow:8px 8px 0 rgba(0,0,0,.5)}
+thead tr {box-shadow:0 2px 4px rgba(0,0,0,.5)}
+th,td {padding:4px 30px}
+th {background:#066;color:#ff0;text-align:left}
+td code {padding:0 8px;border:1px solid rgba(255,255,255,.7)}
 
 @media only screen and (min-width:1801px) {
 #backer_top {background-image:url("../images/BackgroundTop_full.jpg")}
@@ -101,3 +127,14 @@ a {color:#0ff}
 #backer_top {background-image:url("../images/BackgroundTop_400.jpg")}
 #backer_bottom {background-image:url("../images/BackgroundBottom_400.png")}
 }
+
+/* https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.1/build/styles/default.min.css */
+.hljs{display:block;overflow-x:auto;padding:.5em;background:#F0F0F0}.hljs,.hljs-subst{color:#444}.hljs-comment{color:#888888}.hljs-keyword,.hljs-attribute,.hljs-selector-tag,.hljs-meta-keyword,.hljs-doctag,.hljs-name{font-weight:bold}.hljs-type,.hljs-string,.hljs-number,.hljs-selector-id,.hljs-selector-class,.hljs-quote,.hljs-template-tag,.hljs-deletion{color:#880000}.hljs-title,.hljs-section{color:#880000;font-weight:bold}.hljs-regexp,.hljs-symbol,.hljs-variable,.hljs-template-variable,.hljs-link,.hljs-selector-attr,.hljs-selector-pseudo{color:#BC6060}.hljs-literal{color:#78A960}.hljs-built_in,.hljs-bullet,.hljs-code,.hljs-addition{color:#397300}.hljs-meta{color:#1f7199}.hljs-meta-string{color:#4d99bf}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}
+
+/* Highlight overrides */
+.hljs {background:transparent}
+.hljs,.hljs-subst{color:#fff}
+.hljs-comment{color:#aaa}
+.hljs-type,.hljs-string,.hljs-number,.hljs-selector-id,.hljs-selector-class,.hljs-quote,.hljs-template-tag,.hljs-deletion{color:#0f0}
+.hljs-built_in,.hljs-bullet,.hljs-code,.hljs-addition{color:#f00}
+.hljs-title,.hljs-section{color:#0ff;font-weight:normal}
