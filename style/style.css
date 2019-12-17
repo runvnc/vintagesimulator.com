@@ -93,7 +93,7 @@ td code {padding:0 8px;border:1px solid rgba(255,255,255,.7)}
 }
 @media only screen and (min-width:1601px) and (max-width:1800px) {
 #backer_top {background-image:url("../images/BackgroundTop_1800.jpg")}
-#backer_bottom {background-image:url("http://0843jl.hmlive.com/images/BackgroundBottom_1800.png")}
+/* #backer_bottom {background-image:url("http://0843jl.hmlive.com/images/BackgroundBottom_1800.png")}*/
 }
 @media only screen and (min-width:1401px) and (max-width:1600px) {
 #backer_top {background-image:url("../images/BackgroundTop_1600.jpg")}
