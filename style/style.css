@@ -50,6 +50,9 @@ font-weight:bold;font-style:bold}
 h1 {margin:0 auto;padding:30px;max-width:1200px;font-family:C64;font-size:24px;font-weight:normal;color:#0ff}
 h2 {margin:0 0 16px;font-family:'Oxygen Mono',monospace;font-size:18px;font-weight:normal;color:#0cc}
 h3 {margin:0 0 12px;font-family:'Oxygen Mono',monospace;font-size:16px;font-weight:normal;color:#ff0}
+h4 {margin:0 0 12px;font-family:'Oxygen Mono',monospace;font-size:16px;font-weight:normal;color:#ff00ff}
+
+
 p {font-family:'Oxygen Mono',monospace;color:#fff;padding:24px 30px;line-height:1.5}
 ul {padding:17px 60px;background:rgba(0,0,0,.7);list-style:none}
 li {font-family:'Oxygen Mono',monospace;color:#ff0;line-height:2}
