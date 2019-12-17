@@ -29,17 +29,6 @@ url('fonts/c64_pro-style.woff') format('woff'),url('fonts/c64_pro-style.ttf') fo
 url('fonts/c64_pro-style.svg') format('svg');
 font-weight:normal;font-style:normal}
 
-@font-face {font-family:'Speccy';src:url('fonts/zxspectrum7hm.eot');
-src:url('fonts/zxspectrum7hm.eot@') format('embedded-opentype'),url('fonts/zxspectrum7hm.woff2') format('woff2'),
-url('fonts/zxspectrum7hm.woff') format('woff'),url('fonts/zxspectrum7hm.ttf') format('truetype'),
-url('fonts/zxspectrum7hm.svg') format('svg');
-font-weight:normal;font-style:normal}
-
-@font-face {font-family:'SpeccyB';src:url('http://0843jl.hmlive.com/style/fonts/');
-src:url('http://0843jl.hmlive.com/style/fonts/') format('embedded-opentype'),url('http://0843jl.hmlive.com/style/fonts/') format('woff2'),
-url('http://0843jl.hmlive.com/style/fonts/') format('woff'),url('http://0843jl.hmlive.com/style/fonts/') format('truetype'),
-url('http://0843jl.hmlive.com/style/fonts/') format('svg');
-font-weight:bold;font-style:bold}
 
 .f1 {font-family:'Share Tech Mono',monospace;}
 .f2 {font-family:'Ubuntu Mono',monospace;}
