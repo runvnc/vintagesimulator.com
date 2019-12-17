@@ -2,3 +2,6 @@
 *.*~
 .*~
 .*.swp
+
+# Local Netlify folder
+.netlify
