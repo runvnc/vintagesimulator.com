@@ -1,3 +1,15 @@
+# Intro
+### About VSIM
+Vintage Simulator is a (currently 100% FREE) custom libretro front-end (sharing zero code with RetroArch) with the following features:
+* Implements most of the libretro API
+* Run several emulators at the same time
+* Full Lua scripting API
+* 3D graphics and sound
+* Easily load most 3D models such as 3DS or OBJ
+* Bullet Physics engine
+* Plugins
+* includes LOVE plugin (for UI screens in separate windows or generating textures etc.)
+
 ### Developers
 VSIM is a work in progress.  VSIM is currently primarily aimed at programmers who are interested in things like emulation, Lua, 3D models, or physics simulation.  For example, it can provide a good starting point for creating your own custom front-end for libretro.  The hope is that some developers will be interested and will create plugins that add functionality or content that non-programmers can easily access.
 
@@ -59,6 +71,9 @@ emu.setmem(emuN, bank, offset, str)
 ### emu.reset(emulatorid)
 reset emulator machine
 
+### emu.delete(emulatorid)
+delete emulator and node
+
 ### emu.opt(emulatorid,property,value)
 specify emulator option
 
@@ -73,6 +88,10 @@ insert virtual disk into emulator drive
 
 ### emu.eject(emulatorid,drivenum)
 eject disk from virtual emulator drive
+
+### emu.holdkey(emulatorid, key)
+
+### emu.releasekey(emulatorid, key)
 
 ### emu.delete(emulatorid)
 delete emulator and node
@@ -123,25 +142,33 @@ scale the currently selected node
 ### model.rot(x, y, z)
 rotate the currently selected node
 
-### model.mesh(indices, vertices)
-create a mesh from the specified tables
+### model.meshVertex(x,y,z,normx,normy,normz,u,v,color)
+add a vertex to a mesh
 
-#### create a simple triangle mesh and a node from it
+#### create a simple triangle mesh and a node from it [](tri.png)
 ```lua
-  c = { r=255, g=255, b=255, a=255 }
-  v = { { pos = {x=0,y=0,z=0}, color=c,
-         texturecoords = {u=0, v=0},
-         normal = {x=0,y=1,z=0} },
-       { pos = {x=10,y=0,z=0}, color=c,
-         texturecoords = {u=0, v=1},
-         normal = {x=0,y=1,z=0} },
-       { pos = {x=0,y=0,z=10}, color=c,
-         texturecoords = {u=0, v=0},
-         normal = {x=0,y=1,z=0} } }
-  i = {1,2,3}
-  meshid=model.mesh(i,v)
-  id=model.node(meshid)
+  ui.palette(9,1,0,0,1) --red
+  ui.palette(10,0,1,0,1) -- green
+  ui.palette(11,0,0,1,1) -- blue
+  local meshid = model.meshStart()
+  local nrm = {x=0,y=0,z=-1}
+  model.meshVertex(0,1,0,nrm.x,nrm.y,nrm.z,0,0,9)
+  model.meshVertex(1,1,0,nrm.x,nrm.y,nrm.z,1,0,10)
+  model.meshVertex(0,0,0,nrm.x,nrm.y,nrm.z,0,1,11)
+  model.meshIndex(1)
+  model.meshIndex(2)
+  model.meshIndex(3)
+  model.meshDone()
+  local nodeid = model.node(meshid)
+  model.sel(nodeid)
+  model.put('matflag',8,0)--disable lighting on node
 ```
+### model.meshIndex(n)
+add a vertex index to a mesh (1-based)
+
+### model.meshDone()
+create a mesh from the previously specified vertices and indices
+
 ### model.node(meshid)
 add a scene node based on a mesh
 
@@ -170,15 +197,15 @@ position and look direction of selected node becomes relative to nodeid
 animate selected node; loop/repeat string "true" or "false"
 
 # Flow Control
-### flow.wait(ms, funcname, repeat)
-wait X milliseconds and then run a function by name
+### flow.wait(ms, code, repeat)
+wait X milliseconds and then run code
 
 ```lua
-flow.wait(1000, "myFunction")
+flow.wait(1000, "myFunction()")
 ```
 #### calls funcRepeats() approx. every 20 ms
 ```lua
-flow.wait(20, "funcRepeats", "repeat")
+flow.wait(20, "funcRepeats()", "repeat")
 ```
 ### flow.waitui()
 wait for UI to process all lua commands
@@ -194,6 +221,9 @@ flow.on("keydown", "mykeyhandler")
 ```
 ```lua
 flow.on("mousedownobj", "mynodeclickhandler")
+```
+```lua
+flow.on("mouse", "c64mousehandler -- (ev,x,y,wheel)")
 ```
 #### Menu example
 ```lua
@@ -281,7 +311,7 @@ apply emu or ui screen as a texture to a node
 geom = require 'geom'
 require 'utils'
 i,v = geom.face2(0.5,0.5,1,0,0,0)
-screenMesh = model.mesh(i,v)
+screenMesh = makeMesh(i,v)
 screen = model.node(screenMesh)
 model.pos(0,-5,0)
 model.rot(0,0,90)
@@ -298,7 +328,7 @@ flow.wait(2000, 'emustarted')
 ```lua
 geom = require 'geom'
 i,v = geom.face2(5,5,0,0,0)
-labelMesh = model.mesh(i,v)
+labelMesh = makeMesh(i,v)
 lblnode = model.node(labelMesh)
 ui.screen()
 print("Text on node")
